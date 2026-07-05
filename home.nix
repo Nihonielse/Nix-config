@@ -30,6 +30,7 @@ in
     tetrio-desktop
     godot
     kdePackages.kdenlive
+    inkscape
 
     gcc
     gdb

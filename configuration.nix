@@ -100,6 +100,9 @@
     fcitx5.addons = with pkgs; [
       fcitx5-skk
       skkDictionaries.l
+      
+      libskk
+      skktools
     ];
   };
 
