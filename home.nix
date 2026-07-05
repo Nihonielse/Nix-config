@@ -31,6 +31,7 @@ in
     godot
     kdePackages.kdenlive
     inkscape
+    wl-clipboard-rs
 
     gcc
     gdb
