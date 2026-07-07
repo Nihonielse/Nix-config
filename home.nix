@@ -1,10 +1,4 @@
 { config, pkgs, ... }:
-let
-  fetchAppImage = { name, url, sha256 }:
-  pkgs.writeShellScriptBin name ''
-    exec ${pkgs.appimage-run}/bin/appimage-run ${pkgs.fetchurl { curlOpts="-L --retry 3 -A 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'"; inherit url sha256; }}
-  '';
-in
 {
   home.username = "nihoel";
   home.homeDirectory = "/home/nihoel";
