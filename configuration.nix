@@ -85,7 +85,6 @@
     git
     vim
     pulseaudio
-    sudo-rs
   ];
 
   fonts.packages = with pkgs; [
@@ -109,17 +108,12 @@
     dedicatedServer.openFirewall = true;
   };
   nixpkgs.config.packageOverrides = pkgs: {
-      steam = pkgs.steam.override {
-        extraPkgs = pkgs:
-          with pkgs; [
-            hackgen-font
-          ];
-      };
+    steam = pkgs.steam.override {
+      extraPkgs = pkgs: with pkgs; [
+        hackgen-font
+      ];
     };
-
-  services.flatpak.enable = true;
-  # その後コマンドを実行: flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-  # Zen Browser: app.zen_browser.zen
+  };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 

@@ -265,7 +265,7 @@ switch to next activity=,,次のアクティビティに切り替え
 switch to previous activity=,,前のアクティビティに切り替え
 toggle do not disturb=,,マナーモードをオン/オフ
 
-[services][app.zen_browser.zen.desktop]
+[services][zen]
 _launch=Meta+B
 
 [services][net.local.audio-toggle.sh.desktop]

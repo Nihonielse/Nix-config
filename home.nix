@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 {
   home.username = "nihoel";
   home.homeDirectory = "/home/nihoel";
@@ -9,6 +9,7 @@
     appimage-run
     steam-run
     
+    inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
     zed-editor
     discord
     steam
