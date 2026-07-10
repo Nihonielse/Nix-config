@@ -85,6 +85,7 @@
     git
     vim
     pulseaudio
+    ollama
   ];
 
   fonts.packages = with pkgs; [
@@ -113,6 +114,11 @@
         hackgen-font
       ];
     };
+  };
+
+  services.ollama = {
+    enable = true;
+    package = pkgs.ollama-cuda;
   };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
