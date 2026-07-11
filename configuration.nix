@@ -120,6 +120,7 @@
     enable = true;
     package = pkgs.ollama-cuda;
   };
+  services.open-webui.enable = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 

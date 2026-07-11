@@ -27,7 +27,6 @@
     kdePackages.kdenlive
     inkscape
     wl-clipboard-rs
-    docker
 
     gcc
     gdb
