@@ -78,4 +78,7 @@
     "kglobalshortcutsrc".source = ./dotfiles/kde-global-shortcut;
     "kwinrc".source = ./dotfiles/kde-kwin-setting;
   };
+  home.file = {
+    ".local/bin/audio-toggle.sh".source = ./dotfiles/audio-toggle.sh;
+  };
 }
