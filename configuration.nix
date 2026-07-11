@@ -120,10 +120,36 @@
     enable = true;
     package = pkgs.ollama-cuda;
   };
-  services.open-webui.enable = true;
+  virtualisation = {
+    podman = {
+      enable = true;
+      dockerCompat = true;
+      defaultNetwork.settings.dns_enabled = true;
+    };
+    oci-containers = {
+      backend = "podman";
+      containers = {
+        open-webui = {
+          image = "ghcr.io/open-webui/open-webui:main";
+          autoStart = true;
+          ports = [ "4000:8080" ];
+          volumes = [
+            "open-webui:/app/backend/data"
+          ];
+          environment = {
+            OLLAMA_BASE_URL = "http://localhost:11434";
+          };
+          extraOptions = [
+            "--network=host"
+          ];
+        };
+      };
+    };
+  };
+  
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
+    
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
