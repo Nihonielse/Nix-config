@@ -27,6 +27,7 @@
     kdePackages.kdenlive
     inkscape
     wl-clipboard-rs
+    speedcrunch
 
     gcc
     gdb
