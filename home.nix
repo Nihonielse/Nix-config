@@ -33,6 +33,7 @@
     gdb
     clang-tools
     vscode-extensions.vadimcn.vscode-lldb
+    nodejs
   ];
   
   programs.git = {
