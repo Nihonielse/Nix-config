@@ -28,6 +28,7 @@
     inkscape
     wl-clipboard-rs
     speedcrunch
+    prismlauncher
 
     gcc
     gdb
