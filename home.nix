@@ -76,6 +76,10 @@
     '';
   };
 
+  programs.wezterm = {
+    enable = true;
+    extraConfig.source = ./dotfiles/wezterm.lua;
+  }
 
   xdg.configFile = {
     "fontconfig/conf.d/09-user-fonts.conf".source = ./dotfiles/fontconfig.conf;
