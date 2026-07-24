@@ -76,15 +76,11 @@
     '';
   };
 
-  programs.wezterm = {
-    enable = true;
-    extraConfig.source = ./dotfiles/wezterm.lua;
-  }
-
   xdg.configFile = {
     "fontconfig/conf.d/09-user-fonts.conf".source = ./dotfiles/fontconfig.conf;
     "kglobalshortcutsrc".source = ./dotfiles/kde-global-shortcut;
     "kwinrc".source = ./dotfiles/kde-kwin-setting;
+    "wezterm/wezterm.lua".source = ./dotfiles/wezterm.lua;
   };
   home.file = {
     ".local/bin/audio-toggle.sh".source = ./dotfiles/audio-toggle.sh;
