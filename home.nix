@@ -5,12 +5,12 @@
   home.stateVersion = "26.05";
 
   home.packages = with pkgs; [
-    zsh
     appimage-run
     steam-run
-    
+
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
     zed-editor
+    zsh
     discord
     steam
     lutris
@@ -29,6 +29,7 @@
     wl-clipboard-rs
     speedcrunch
     prismlauncher
+    wezterm
 
     gcc
     gdb
@@ -36,7 +37,7 @@
     vscode-extensions.vadimcn.vscode-lldb
     nodejs
   ];
-  
+
   programs.git = {
     enable = true;
     settings = {
@@ -47,35 +48,35 @@
   };
 
   programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
+
+    oh-my-zsh = {
       enable = true;
-      enableCompletion = true;
-      autosuggestion.enable = true;
-      syntaxHighlighting.enable = true;
-  
-      oh-my-zsh = {
-        enable = true;
-        plugins = [ "git" "sudo" ];
-      };
-  
-      plugins = [
-        {
-          name = "powerlevel10k";
-          src = pkgs.zsh-powerlevel10k;
-          file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-        }
-        {
-          name = "powerlevel10k-config";
-          src = ./dotfiles;
-          file = "p10k.zsh";
-        }
-      ];
-  
-      initContent = ''
-        [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-      '';
+      plugins = [ "git" "sudo" ];
     };
 
-  
+    plugins = [
+      {
+        name = "powerlevel10k";
+        src = pkgs.zsh-powerlevel10k;
+        file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+      }
+      {
+        name = "powerlevel10k-config";
+        src = ./dotfiles;
+        file = "p10k.zsh";
+      }
+    ];
+
+    initContent = ''
+      [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+    '';
+  };
+
+
   xdg.configFile = {
     "fontconfig/conf.d/09-user-fonts.conf".source = ./dotfiles/fontconfig.conf;
     "kglobalshortcutsrc".source = ./dotfiles/kde-global-shortcut;
