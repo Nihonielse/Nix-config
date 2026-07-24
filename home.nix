@@ -10,7 +10,6 @@
 
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
     zed-editor
-    zsh
     discord
     steam
     lutris
@@ -29,7 +28,6 @@
     wl-clipboard-rs
     speedcrunch
     prismlauncher
-    wezterm
 
     gcc
     gdb
@@ -75,6 +73,7 @@
       [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
     '';
   };
+  programs.wezterm.enable = true;
 
   xdg.configFile = {
     "fontconfig/conf.d/09-user-fonts.conf".source = ./dotfiles/fontconfig.conf;
