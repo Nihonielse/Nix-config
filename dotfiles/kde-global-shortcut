@@ -272,7 +272,7 @@ toggle do not disturb=none,none,マナーモードをオン/オフ
 _launch=Volume Mute
 
 [services][org.kde.konsole.desktop]
-_launch=Meta+Return
+_launch=none
 
 [services][org.kde.krunner.desktop]
 RunClipboard=none
@@ -304,6 +304,9 @@ ToggleTouchpad=none
 
 [services][org.speedcrunch.SpeedCrunch.desktop]
 _launch=Meta+C
+
+[services][org.wezfurlong.wezterm.desktop]
+_launch=Meta+Return
 
 [services][systemsettings.desktop]
 _launch=none

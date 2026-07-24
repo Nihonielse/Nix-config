@@ -85,7 +85,6 @@
     git
     vim
     pulseaudio
-    ollama
   ];
 
   fonts.packages = with pkgs; [
@@ -117,7 +116,7 @@
   };
 
   services.ollama = {
-    enable = true;
+    enable = false;
     package = pkgs.ollama-cuda;
   };
   virtualisation = {
