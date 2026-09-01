@@ -12,7 +12,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.timeout = 2;
 
-  networking.hostName = "niHOxos"; # Define your hostname.
+  networking.hostName = "nihoxos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
 
@@ -66,7 +66,7 @@
   };
 
   programs.zsh.enable = true;
-  
+
   environment.sessionVariables = rec {
     XDG_CACHE_HOME  = "$HOME/.cache";
     XDG_CONFIG_HOME = "$HOME/.config";
@@ -91,6 +91,7 @@
     noto-fonts-cjk-sans
     hackgen-font
     hackgen-nf-font
+    nerd-fonts.jetbrains-mono
   ];
 
   i18n.inputMethod = {
@@ -115,40 +116,18 @@
     };
   };
 
-  services.ollama = {
-    enable = false;
-    package = pkgs.ollama-cuda;
+  fileSystems."/mnt/storage" = {
+    device = "/dev/disk/by-uuid/6ab33fab-5468-4531-a639-cb2629898478";
+    fsType = "ext4";
+    options = [
+      "defaults"
+      "noatime"
+      "nofail"
+    ];
   };
-  virtualisation = {
-    podman = {
-      enable = true;
-      dockerCompat = true;
-      defaultNetwork.settings.dns_enabled = true;
-    };
-    oci-containers = {
-      backend = "podman";
-      containers = {
-        open-webui = {
-          image = "ghcr.io/open-webui/open-webui:main";
-          autoStart = true;
-          ports = [ "4000:8080" ];
-          volumes = [
-            "open-webui:/app/backend/data"
-          ];
-          environment = {
-            OLLAMA_BASE_URL = "http://localhost:11434";
-          };
-          extraOptions = [
-            "--network=host"
-          ];
-        };
-      };
-    };
-  };
-  
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-    
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;

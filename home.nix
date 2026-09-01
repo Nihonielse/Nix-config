@@ -13,14 +13,11 @@
     discord
     steam
     lutris
-    wine
-    winetricks
     ungoogled-chromium
     antimicrox
     obs-studio
     obs-studio-plugins.input-overlay
     scrcpy
-    fastfetch
     tetrio-desktop
     godot
     kdePackages.kdenlive
@@ -28,12 +25,6 @@
     wl-clipboard-rs
     speedcrunch
     prismlauncher
-
-    gcc
-    gdb
-    clang-tools
-    vscode-extensions.vadimcn.vscode-lldb
-    nodejs
   ];
 
   programs.git = {
@@ -68,18 +59,10 @@
         file = "p10k.zsh";
       }
     ];
-
-    initContent = ''
-      [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-    '';
   };
-  programs.wezterm.enable = true;
 
   xdg.configFile = {
     "fontconfig/conf.d/09-user-fonts.conf".source = ./dotfiles/fontconfig.conf;
-    "kglobalshortcutsrc".source = ./dotfiles/kde-global-shortcut;
-    "kwinrc".source = ./dotfiles/kde-kwin-setting;
-    "wezterm/wezterm.lua".source = ./dotfiles/wezterm.lua;
   };
   home.file = {
     ".local/bin/audio-toggle.sh".source = ./dotfiles/audio-toggle.sh;
