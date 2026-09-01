@@ -131,6 +131,29 @@
     dockerCompat = true;
   };
 
+  networking.hosts = {
+    "127.0.0.1" = [ "local.home" ];
+  };
+  services.nginx = {
+    enable = true;
+    virtualHosts."localhost" = {
+      listen = [{
+        addr = "127.0.0.1";
+        port = 7000;
+      }];
+      root = "/mnt/storage/Web";
+      locations."/" = {
+        index = "index.html";
+      };
+    };
+  };
+  services.caddy = {
+    enable = true;
+    virtualHosts."http://local.home".extraConfig = ''
+      reverse_proxy localhost:7000
+    '';
+  };
+
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Some programs need SUID wrappers, can be configured further or are
