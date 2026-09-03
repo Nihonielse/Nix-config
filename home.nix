@@ -25,6 +25,8 @@
     wl-clipboard-rs
     speedcrunch
     prismlauncher
+
+    vscode-extensions.vadimcn.vscode-lldb.adapter
   ];
 
   programs.git = {
@@ -59,6 +61,22 @@
         file = "p10k.zsh";
       }
     ];
+  };
+
+  programs.zed-editor = {
+    enable = true;
+    userSettings = {
+      dap.CodeLLDB.binary = "${pkgs.vscode-extensions.vadimcn.vscode-lldb.adapter}/bin/codelldb";
+      show_whitespaces = "trailing";
+      indent_guides = {
+        background_coloring = "indent_aware";
+        coloring = "indent_aware";
+      };
+      restore_on_startup = "launchpad";
+      project_panel.dock = "left";
+      theme = "Ayu Dark";
+      sticky_scroll.enable = true;
+    };
   };
 
   xdg.configFile = {
