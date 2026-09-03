@@ -79,6 +79,11 @@
     };
   };
 
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
+
   xdg.configFile = {
     "fontconfig/conf.d/09-user-fonts.conf".source = ./dotfiles/fontconfig.conf;
   };
