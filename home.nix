@@ -9,13 +9,11 @@
     steam-run
 
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
-    zed-editor
     discord
     steam
     lutris
     ungoogled-chromium
     antimicrox
-    obs-studio
     scrcpy
     tetrio-desktop
     godot
