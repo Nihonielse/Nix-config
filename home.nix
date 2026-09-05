@@ -16,7 +16,6 @@
     ungoogled-chromium
     antimicrox
     obs-studio
-    obs-studio-plugins.input-overlay
     scrcpy
     tetrio-desktop
     godot
@@ -82,6 +81,14 @@
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
+  };
+
+  programs.obs-studio = {
+    enable = true;
+    plugins = with pkgs.obs-studio-plugins; [
+      input-overlay
+      obs-livesplit-one
+    ];
   };
 
   xdg.configFile = {
