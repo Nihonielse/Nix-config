@@ -8,7 +8,15 @@
     appimage-run
     steam-run
 
-    inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
+    (pkgs.symlinkJoin {
+      name = "zen-browser";
+      paths = [ inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default ];
+      nativeBuildInputs = [ pkgs.makeWrapper ];
+      postBuild = ''
+        wrapProgram $out/bin/zen \
+          --prefix LD_LIBRARY_PATH : ${pkgs.lib.makeLibraryPath [ pkgs.ffmpeg ]}
+      '';
+    })
     discord
     steam
     lutris
